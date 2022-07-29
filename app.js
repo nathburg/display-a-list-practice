@@ -1,4 +1,11 @@
-// import functions and grab DOM elements
+import { renderGardenTools } from "./render-garden-tools.js";
+import { gardenTools } from "./garden-tools-array.js";
+const gardenToolListEl = document.getElementById('garden-tools-list');
+
+for (let gardenTool of gardenTools) {
+    const newToolEl = renderGardenTools(gardenTool);
+    gardenToolListEl.appendChild(newToolEl);
+}
 
 // initialize global state
 
