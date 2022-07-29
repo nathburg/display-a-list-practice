@@ -2,15 +2,19 @@ import { renderGardenTools } from "./render-garden-tools.js";
 import { gardenTools } from "./garden-tools-array.js";
 import { renderCar } from "./render-cars.js";
 import { cars } from "./cars-array.js";
+import { renderApartments } from "./render-apartments.js";
+import { apartments } from "./apartments-array.js";
+
 const gardenToolListEl = document.getElementById('garden-tools-list');
 const carsListEl = document.getElementById('cars-list');
+const apartmentsListEl = document.getElementById('apartments-list');
 
 
 let carCounter = 1;
+let apartmentCounter = 1;
 
 for (let gardenTool of gardenTools) {
-    const newToolEl = renderGardenTools(gardenTool);
-    gardenToolListEl.append(newToolEl);
+    gardenToolListEl.append(renderGardenTools(gardenTool));
 }
 
 for (let car of cars) {
@@ -18,15 +22,13 @@ for (let car of cars) {
     carHeader.textContent = `Car ${carCounter}`;
     carCounter++;
     carsListEl.append(carHeader);
-    const newCarEl = renderCar(car);
-    console.log(newCarEl);
-    carsListEl.append(newCarEl);
+    carsListEl.append(renderCar(car));
 }
 
-
-// initialize global state
-
-// set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
+for (let apartment of apartments) {
+    const apartmentHeader = document.createElement('h3');
+    apartmentHeader.textContent = `Apartment ${apartmentCounter}`;
+    apartmentCounter++;
+    apartmentsListEl.append(apartmentHeader);
+    apartmentsListEl.append(renderApartments(apartment));
+};
