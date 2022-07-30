@@ -17,6 +17,8 @@ export function renderApartments(apartment) {
     apartmentEl.append(addressEl);
     apartmentEl.append(squareFootageEl);
     apartmentEl.append(tenantsEl);
+
+    apartmentEl.classList.add('apartment');
     
     return apartmentEl;
 }

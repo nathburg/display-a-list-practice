@@ -4,14 +4,18 @@ import { renderCar } from "./render-cars.js";
 import { cars } from "./cars-array.js";
 import { renderApartments } from "./render-apartments.js";
 import { apartments } from "./apartments-array.js";
+import { renderBabies } from "./render-babies.js";
+import { babies } from "./babies-array.js";
 
 const gardenToolListEl = document.getElementById('garden-tools-list');
 const carsListEl = document.getElementById('cars-list');
 const apartmentsListEl = document.getElementById('apartments-list');
+const babiesListEl = document.getElementById('babies-list');
 
 
 let carCounter = 1;
 let apartmentCounter = 1;
+let babyCounter = 1;
 
 for (let gardenTool of gardenTools) {
     gardenToolListEl.append(renderGardenTools(gardenTool));
@@ -31,4 +35,12 @@ for (let apartment of apartments) {
     apartmentCounter++;
     apartmentsListEl.append(apartmentHeader);
     apartmentsListEl.append(renderApartments(apartment));
+};
+
+for (let baby of babies) {
+    const newBaby = document.createElement('h1');
+    babiesListEl.append(newBaby);
+    newBaby.textContent = `Baby ${babyCounter}`;
+    babyCounter++;
+    babiesListEl.append(renderBabies(baby));
 };
